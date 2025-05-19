@@ -22,7 +22,7 @@ public class Credit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private double montant;
-    private Date dureeRemboursement;
+    private int dureeRemboursement;
     private Date dateDemande;
     private Date dateAcceptation;
     @Enumerated(EnumType.STRING)
