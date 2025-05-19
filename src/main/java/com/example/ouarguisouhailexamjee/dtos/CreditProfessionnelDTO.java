@@ -4,7 +4,7 @@ package com.example.ouarguisouhailexamjee.dtos;
 import lombok.Data;
 
 @Data
-public class CreditProfessionnelDTO {
+public class CreditProfessionnelDTO extends CreditDTO{
     private Long id;
     private double montant;
     private int dureeRemboursement;
@@ -14,4 +14,5 @@ public class CreditProfessionnelDTO {
     private double tauxInteret;
     private String motif;
     private String raisonSociale;
+    private ClientDTO client;
 }

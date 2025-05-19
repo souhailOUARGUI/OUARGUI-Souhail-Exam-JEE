@@ -5,7 +5,7 @@ import com.example.ouarguisouhailexamjee.enums.BienType;
 import lombok.Data;
 
 @Data
-public class CreditImmobilierDTO {
+public class CreditImmobilierDTO extends CreditDTO{
     private Long id;
     private double montant;
     private int dureeRemboursement;
@@ -14,4 +14,5 @@ public class CreditImmobilierDTO {
     private String creditStatut;
     private double tauxInteret;
     private BienType bienType;
+    private ClientDTO client;
 }
