@@ -101,6 +101,13 @@ public class CreditServiceImpl implements CreditService {
     }
 
     @Override
+    public List<CreditDTO> listCredits() {
+        return creditRepository.findAll().stream()
+                .map(dtoMapper::fromCredit)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public ClientDTO getClient(Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new RuntimeException("Client not found"));

@@ -16,6 +16,7 @@ public interface CreditService {
 
     CreditDTO getCreditById(Long creditId);
 
+    List<CreditDTO> listCredits();
     ClientDTO getClient(Long clientId);
     ClientDTO updateClient(ClientDTO clientDTO);
     void deleteClient(Long clientId);
