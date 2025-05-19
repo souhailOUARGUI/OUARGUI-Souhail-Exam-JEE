@@ -1,10 +1,7 @@
 package com.example.ouarguisouhailexamjee;
 
-import com.example.ouarguisouhailexamjee.entities.Client;
-import com.example.ouarguisouhailexamjee.entities.CreditImmobilier;
+import com.example.ouarguisouhailexamjee.entities.*;
 import com.example.ouarguisouhailexamjee.enums.*;
-import com.example.ouarguisouhailexamjee.entities.CreditPersonnel;
-import com.example.ouarguisouhailexamjee.entities.CreditProfessionnel;
 import com.example.ouarguisouhailexamjee.repositories.ClientRepository;
 import com.example.ouarguisouhailexamjee.repositories.CreditRepository;
 import com.example.ouarguisouhailexamjee.repositories.RemboursementRepository;
@@ -35,33 +32,46 @@ public class OuarguiSouhailExamJeeApplication {
 //              client.setEmail(name+"@gmail.com");
 //              clientRepository.save(client);
 //          });
-        clientRepository.findAll().forEach(client -> {
-            CreditPersonnel creditPersonnel = new CreditPersonnel();
-            creditPersonnel.setMontant(Math.random() * 10000);
-            creditPersonnel.setTauxInteret( 10);
-            creditPersonnel.setDureeRemboursement(12);
-            creditPersonnel.setCreditStatut(CreditStatut.PENDING);
-            creditPersonnel.setMotif("etudes");
-            creditPersonnel.setDateDemande(new Date());
-            creditPersonnel.setDateAcceptation(new Date());
-            creditPersonnel.setClient(client);
-
-            creditRepository.save(creditPersonnel);
-
-            CreditImmobilier creditImmobilier = new CreditImmobilier();
-            creditImmobilier.setMontant(Math.random() * 10000);
-            creditImmobilier.setTauxInteret( 10);
-            creditImmobilier.setDureeRemboursement(12);
-            creditImmobilier.setCreditStatut(CreditStatut.PENDING);
-            creditImmobilier.setBienType(BienType.APPARTEMENT);
-            creditImmobilier.setDateDemande(new Date());
-            creditImmobilier.setDateAcceptation(new Date());
-            creditImmobilier.setClient(client);
-
-            creditRepository.save(creditPersonnel);
 
 
-        });
+//        clientRepository.findAll().forEach(client -> {
+//            CreditPersonnel creditPersonnel = new CreditPersonnel();
+//            creditPersonnel.setMontant(Math.random() * 10000);
+//            creditPersonnel.setTauxInteret( 10);
+//            creditPersonnel.setDureeRemboursement(12);
+//            creditPersonnel.setCreditStatut(CreditStatut.PENDING);
+//            creditPersonnel.setMotif("etudes");
+//            creditPersonnel.setDateDemande(new Date());
+//            creditPersonnel.setDateAcceptation(new Date());
+//            creditPersonnel.setClient(client);
+//
+//            creditRepository.save(creditPersonnel);
+//
+//            CreditImmobilier creditImmobilier = new CreditImmobilier();
+//            creditImmobilier.setMontant(Math.random() * 10000);
+//            creditImmobilier.setTauxInteret( 10);
+//            creditImmobilier.setDureeRemboursement(12);
+//            creditImmobilier.setCreditStatut(CreditStatut.PENDING);
+//            creditImmobilier.setBienType(BienType.APPARTEMENT);
+//            creditImmobilier.setDateDemande(new Date());
+//            creditImmobilier.setDateAcceptation(new Date());
+//            creditImmobilier.setClient(client);
+//
+//            creditRepository.save(creditPersonnel);
+//        });
+
+                creditRepository.findAll().forEach(credit -> {
+                    Remboursement remboursement = new Remboursement();
+                    remboursement.setMontant(Math.random() * 1000);
+                    remboursement.setDateRemboursement("2021-01-01");
+                    remboursement.setRemboursementType(RemboursementType.MENSUEL);
+                    remboursement.setCredit(credit);
+
+                    remboursementRepository.save(remboursement);
+                });
+
+
+
 
         };
     }
